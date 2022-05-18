@@ -21,16 +21,15 @@ def find_item(name: str):
 
     if end_of_name in items:
         return getattr(songbird, end_of_name)
-    else:
-        upper = '.'.join(name.split(".")[:-1])
+    upper = '.'.join(name.split(".")[:-1])
 
-        if not upper:
-            return
+    if not upper:
+        return
 
-        found = find_item(upper)
-        if not found:
-            return
-        return getattr(found, end_of_name)
+    found = find_item(upper)
+    if not found:
+        return
+    return getattr(found, end_of_name)
 
 def docstring(app, what, name, obj, options, lines):
     try:

@@ -11,9 +11,7 @@ _log = Logger(__name__)
 
 
 def extract_driver(driver: Any):
-    if isinstance(driver, Driver):
-        return driver
-    return driver.driver
+    return driver if isinstance(driver, Driver) else driver.driver
 
 
 class Queue(list):

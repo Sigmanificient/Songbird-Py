@@ -49,9 +49,7 @@ from docstrings import find_item
 def new_format_signature(self, **kwargs) -> str:
     path = '.'.join(self.objpath)
     obj = self.object
-    typehinter = find_item(path)
-
-    if typehinter:
+    if typehinter := find_item(path):
         obj = typehinter
 
     return str(signature(obj)).replace("'", "")
@@ -62,9 +60,7 @@ def new_add_directive_header(self, sig: str) -> None:
 
     path = '.'.join(self.objpath)
     obj = self.object
-    typehinter = find_item(path)
-
-    if typehinter:
+    if typehinter := find_item(path):
         obj = typehinter
 
     if inspect.isabstractmethod(obj):
